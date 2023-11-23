@@ -3,15 +3,13 @@ package entities;
 public class Conta {
 	private int numberConta;
 	private String nameConta;
-	private double depositoInicial;
 	private double saldoConta;
-	public static final double TAXA = 5.00;
+	public static final double TAXA_SAQUE = 5.00;
 	
 	public Conta(int numberConta, String nameConta, double depositoInicial) {
 		this.numberConta = numberConta;
 		this.nameConta = nameConta;
-		this.depositoInicial = depositoInicial;
-		this.saldoConta = this.depositoInicial;
+		deposito(depositoInicial);
 	} 
 	
 	public Conta(int numberConta, String nameConta) {
@@ -27,10 +25,6 @@ public class Conta {
 		this.nameConta = nameConta;
 	}
 
-	public double getDepositoInicial() {
-		return depositoInicial;
-	}
-
 	public int getNumberConta() {
 		return numberConta;
 	}
@@ -44,7 +38,7 @@ public class Conta {
 	}
 	
 	public void saques(double valorSaque) {
-		this.saldoConta -= (valorSaque + TAXA);
+		this.saldoConta -= (valorSaque + TAXA_SAQUE);
 	}
 
 	public String toString() {
