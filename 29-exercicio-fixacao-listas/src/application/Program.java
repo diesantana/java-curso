@@ -21,13 +21,19 @@ public class Program {
 		System.out.println();
 		
 		for(int i = 1; i <= qtdFuncionarios; i++) {
-			System.out.println("Funcionário #" + i);
+			System.out.println("Funcionário #" + i + ":");
 			
 			System.out.print("Id: ");
 			int id = scanner.nextInt();
-			scanner.nextLine();
+			
+			while(hasId(funcionarios, id)) {
+				System.out.println("Este ID já existe! Tente novamente");
+				System.out.print("Id: ");
+				id = scanner.nextInt();
+			}
 
 			System.out.print("Nome: ");
+			scanner.nextLine();
 			String name = scanner.nextLine();
 			
 			System.out.print("Salário: ");
@@ -38,26 +44,20 @@ public class Program {
 			System.out.println();
 		}
 		
-		int indiceDoIdAumento = -1;
 		
 		System.out.print("Informe o ID do funcionário que terá aumento salarial: ");
 		int idAumento = scanner.nextInt();
 		
+		Employees funcionarioAumento = funcionarios.stream().filter(x -> x.getId() == idAumento).findFirst().orElse(null);
 		
-		
-		for(int i = 0; i < funcionarios.size(); i++) {
-			if(funcionarios.get(i).getId() == idAumento) {
-				indiceDoIdAumento = i;
-			}
-		}
-		
-		if(indiceDoIdAumento < 0) {
+
+		if(funcionarioAumento == null ) {
 			System.out.println("Este ID não existe!");
 		}
 		else {
 			System.out.print("Informe a porcentagem: ");
-			int porcentagem = scanner.nextInt();			
-			funcionarios.get(indiceDoIdAumento).salaryIncrease(porcentagem);
+			double porcentagem = scanner.nextDouble();			
+			funcionarioAumento.salaryIncrease(porcentagem);
 		}
 		
 		System.out.println();
@@ -68,6 +68,12 @@ public class Program {
 		}
 		
 		scanner.close();
+	}
+	
+	public static boolean hasId(List<Employees> list, int id) {
+		Employees emp = list.stream().filter(x -> x.getId() == id).findFirst().orElse(null);
+		return emp != null; 
+		// emp não é nulo? True não é nulo, o funcionário existe | False: é nulo o funcionário não existe;
 	}
 
 }
