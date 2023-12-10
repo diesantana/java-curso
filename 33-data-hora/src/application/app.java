@@ -1,10 +1,12 @@
 package application;
 
+import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 
 public class app {
 
@@ -116,11 +118,49 @@ public class app {
 		
 		int hour = d24.getHour(); // 20
 		int minutes = d24.getMinute(); // 26
-		int seconds = d24.getSecond();
+		int seconds = d24.getSecond(); // 30
 		
-		System.out.println(hour); 
-		System.out.println(minutes);  
-		System.out.println(seconds);
+		LocalDate d25 = LocalDate.parse("2023-12-07");
+		
+		LocalDate d26 = d25.minusWeeks(1); // 2023-11-30
+		
+		LocalDate d27 = d25.plusDays(5); // 2023-12-12
+		
+		LocalDateTime d28 = LocalDateTime.parse("2023-12-07T00:33:00");
+		
+		LocalDateTime d29 = d28.minusHours(10); // 2023-12-06T14:33
+		
+		LocalDateTime d30 = d28.plusMonths(3); // 2024-03-07T00:33
+		
+		Instant d31 = Instant.parse("2023-12-07T10:23:30z"); 
+		// 2023-12-07T10:23:30Z
+		
+		Instant d32 = d31.minus(3, ChronoUnit.DAYS);
+		Instant d33 = d31.plus(365, ChronoUnit.DAYS);
+		
+		
+		LocalDateTime d34 = LocalDateTime.parse("2023-12-07T11:10");
+		LocalDateTime d35 = LocalDateTime.parse("2023-07-14T11:10");
+		
+		Duration duracao = Duration.between(d35, d34);
+		
+		int d = (int) duracao.toDays(); // 146
+		
+		LocalDate d36 = LocalDate.parse("2023-12-08");
+		LocalDate d37 = LocalDate.parse("2023-12-04");
+		
+		Duration duracao2 = Duration.between(d36.atTime(0, 0), d37.atTime(0, 0));
+		
+		Duration duracao3 = Duration.between(d37.atStartOfDay(), d36.atStartOfDay());
+		
+		Instant d38 = Instant.parse("2023-12-08T12:36:00Z");
+		Instant d39 = Instant.parse("2023-12-06T10:03:00Z");
+		
+		Duration duracao4 = Duration.between(d39, d38);
+		
+		System.out.println(duracao4.toMinutes()); // 3.033 minutos
+		System.out.println(duracao4.toHours()); // 50 horas
+		System.out.println(duracao4.toDays()); // 2 dias
 		
 
 		
