@@ -1,1 +1,52 @@
-/bin/
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Arquivos gerados pelo Eclipse
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+
+# Arquivos de logs
+*.log
+
+# Diretório de output dos testes
+target/
+
+# Diretório de logs do Maven
+log/
+
+# Fichários de propriedades
+*.ini
+
+# Cache do Maven
+.mtj.tmp/
+.mvn/
+
+# JARs e arquivos de dependência
+lib/
+*.jar
+*.war
+*.ear
+
+# Arquivos de configuração do IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Arquivos de configuração do NetBeans
+nbproject/private/
+nbbuild/
+nbdist/
+nbdist/web-*.jar
+nbactions.xml
+nb-configuration.xml
+
+# Diretório de saída da Javadoc
+doc/
