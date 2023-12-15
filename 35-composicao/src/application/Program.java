@@ -61,6 +61,7 @@ public class Program {
 		System.out.println();
 		System.out.print("Enter month and year to calculate income (MM/YYYY): ");
 		scanner.nextLine();
+		
 		String monthAndYear = scanner.next();
 		LocalDate monthAndYearDate = LocalDate.parse("01/"+ monthAndYear, formatDate);
 		
