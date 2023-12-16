@@ -28,7 +28,7 @@ public class Program {
 		Post post2 = new Post(postDate, title, content, likes);
 		post2.addComment(new Comment("Good night"));
 		post2.addComment(new Comment("May the force be with you"));
-		
+		/*
 		System.out.println(post1.getTitle());
 		System.out.print(post1.getLikes() + " Likes - ");
 		System.out.println(post1.getMoment().format(formatDate));
@@ -48,8 +48,11 @@ public class Program {
 			System.out.println(c);
 		}
 		System.out.println();
-		
-
+		System.out.println("-----------------------------");
+		System.out.println();
+		*/
+		System.out.println(post1);
+		System.out.println(post2);
 	}
 
 }

@@ -1,16 +1,19 @@
 package entities;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Post {
+	
+	private static DateTimeFormatter formateDate = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 	private LocalDateTime moment;
 	private String title;
 	private String content;
 	private Integer likes;
 	
-	List<Comment> comments = new ArrayList<>();
+	private List<Comment> comments = new ArrayList<>();
 
 	public Post() {
 	}
@@ -54,6 +57,10 @@ public class Post {
 		this.likes = likes;
 	}
 
+	public static DateTimeFormatter getFormateDate() {
+		return formateDate;
+	}
+
 	public List<Comment> getComments() {
 		return comments;
 	}
@@ -65,5 +72,25 @@ public class Post {
 	public void removeComment(Comment comment) {
 		comments.remove(comment);
 	}
+	
+	
+
+	@Override
+	public String toString() {
+		// Criando um StringBuilder vazio
+		StringBuilder sb = new StringBuilder();
+		sb.append(title + "\n");
+		sb.append(likes + " Likes - ");
+		sb.append(moment.format(formateDate) + "\n");
+		sb.append(content + "\n");
+		sb.append("Comments: \n");
+		for(Comment c : comments) {
+			sb.append(c.getText() + "\n");
+		}
+		
+		return sb.toString();
+	}
+	
+	
 	
 }
