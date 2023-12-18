@@ -31,8 +31,7 @@ public class Program {
 		
 		System.out.println("Enter order data:");
 		System.out.print("Status: ");
-		String statusText = scanner.next();
-		OrderStatus status = OrderStatus.valueOf(statusText);
+		OrderStatus status = OrderStatus.valueOf(scanner.next());
 		
 		Order order = new Order(status, client);
 		
