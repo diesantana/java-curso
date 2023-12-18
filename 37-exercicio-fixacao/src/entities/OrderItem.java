@@ -9,7 +9,6 @@ public class OrderItem {
 	public OrderItem() {}
 
 	public OrderItem(Integer quantity, Product product) {
-		super();
 		this.quantity = quantity;
 		this.product = product;
 		this.price = product.getPrice();
@@ -34,5 +33,16 @@ public class OrderItem {
 	public Double subTotal() {
 		return price * quantity;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder(product.getName() + ", $");
+		sb.append(String.format("%.2f, Quantity: ", product.getPrice()));
+		sb.append(quantity);
+		sb.append(String.format(", Subtotal: $%.2f", subTotal()));
+		return sb.toString();
+	}
+	
+	
 	
 }
