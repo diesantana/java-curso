@@ -42,5 +42,11 @@ public class Employee {
 	public Double payment() {
 		return hours * valuePerHour;
 	}
+
+	@Override
+	public String toString() {
+		return String.format("%s - $ %.2f",name, payment());
+	}
+	
 	
 }
