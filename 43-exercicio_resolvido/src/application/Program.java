@@ -21,7 +21,6 @@ public class Program {
 		for(int i = 0; i < qtdEmployees; i++) {
 			System.out.println("Employee #" +(i+1)+ "data:");
 			
-			scanner.nextLine();
 			System.out.print("Outsourced (y/n)? ");
 			char isOutsourced = scanner.next().charAt(0);
 			
@@ -45,7 +44,8 @@ public class Program {
 		}
 		
 		System.out.println();
-		System.out.println("PAYMENTS: ");
+		System.out.println("PAYMENTS:");
+		
 		for(Employee emp: employees) {
 			System.out.println(emp);
 		}
