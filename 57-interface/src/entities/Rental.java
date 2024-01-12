@@ -72,10 +72,11 @@ public class Rental {
 	
 	public Double basicPayment() {
 		double hours = (double) Duration();
-		if(Duration() < 12) {
+		if(Duration() < 12.00) {
 			return hours * valuePerHour;			
 		}else {
-			return hours * valuePerDay;
+			int days = (int) Math.ceil((double) hours / 24.0)  ; 
+			return days * valuePerDay;
 		}
 	}
 	
