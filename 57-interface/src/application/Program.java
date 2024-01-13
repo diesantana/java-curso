@@ -38,7 +38,7 @@ public class Program {
 		CarRental rental = new CarRental(startDate, finishDate, vehicle);
 		
 		// service para gerar a fatura
-		RentalService service = new RentalService(pricePerHour, pricePerDay);
+		RentalService service = new RentalService(pricePerHour, pricePerDay, new BrazilTaxService());
 		
 		// gerando a fatura a partir do service "rentalService" instanciado acima
 		service.processInvoice(rental);

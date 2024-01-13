@@ -8,12 +8,12 @@ import model.entities.Invoice;
 public class RentalService {
 	private Double pricePerHour;
 	private Double pricePerDay;
-	private BrazilTaxService taxSercice;
+	private TaxService taxSercice;
 	
-	public RentalService(Double pricePerHour, Double pricePerDay) {
+	public RentalService(Double pricePerHour, Double pricePerDay, TaxService taxService) {
 		this.pricePerHour = pricePerHour;
 		this.pricePerDay = pricePerDay;
-		this.taxSercice = new BrazilTaxService();
+		this.taxSercice = taxService;
 	}
 	
 	public void processInvoice(CarRental carRental) {
