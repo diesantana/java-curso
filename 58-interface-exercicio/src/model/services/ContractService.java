@@ -18,10 +18,10 @@ public class ContractService {
 			Double valueWithInterest = interestMonth + installmentValue; // Valor da parcela com o jutos mensal 
 
 			Double paymentRate = service.paymentFee(valueWithInterest); // taxa de pagamento 
-			Double finalValue = paymentRate + valueWithInterest; // valor final, com juros mensal e taxa 
+			Double valorFimMes = paymentRate + valueWithInterest; // valor final, com juros mensal e taxa 
 
 			// Adicionando as parcelas no contrato
-			contract.getInstallments().add(new Installment(contract.getDate().plusMonths(iMonth), finalValue));
+			contract.getInstallments().add(new Installment(contract.getDate().plusMonths(iMonth), valorFimMes));
 			iMonth ++;
 		}
 
