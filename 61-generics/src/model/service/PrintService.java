@@ -3,21 +3,21 @@ package model.service;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PrintService {
-	private List<Integer> list = new ArrayList<>();
+public class PrintService<T> {
+	private List<T> list = new ArrayList<>();
 	
 	public PrintService() {
 	}
 
-	public List<Integer> getList() {
+	public List<T> getList() {
 		return list;
 	}
 
-	public void addValue(int value) {
+	public void addValue(T value) {
 		list.add(value);
 	}
 	
-	public int first() {
+	public T first() {
 		if(list.isEmpty()) {
 			throw new IllegalArgumentException("A lista está vazia!");
 		}

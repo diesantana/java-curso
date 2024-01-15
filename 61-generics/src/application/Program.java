@@ -11,7 +11,7 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		
 		try(Scanner sc = new Scanner(System.in);){
-			PrintService ps = new PrintService();
+			PrintService<Integer> ps = new PrintService<Integer>();
 			
 			System.out.print("Quantos valores? ");
 			int quantity = sc.nextInt();
@@ -27,10 +27,33 @@ public class Program {
 			
 			ps.print();
 			System.out.println("First: " + first);
+			System.out.println();
+			
+			
+			
+			System.out.println("NOMES: ");
+			PrintService<String> ps2 = new PrintService<String>();
+			
+			System.out.print("Quantos nomes? ");
+			quantity = sc.nextInt();
+			sc.nextLine();
+			for(int i = 0; i < quantity; i++) {
+				System.out.print("Digite o " +(i+1) +"º nome: ");
+				ps2.addValue(sc.nextLine());
+			}
+			
+			System.out.println();
+			String firstName = ps2.first();
+			
+			ps2.print();
+			System.out.println("First: " + firstName);
+			System.out.println();
+			
 						
 		}catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
 		}
+		
 
 	}
 
