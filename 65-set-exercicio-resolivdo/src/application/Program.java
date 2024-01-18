@@ -23,32 +23,16 @@ public class Program {
 		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 			String line = br.readLine();
 			while (line != null) {
-				String userName = line.split(" ")[0];
-				String userDate = line.split(" ")[1];
+				String[] lineArray = line.split(" ");
+				String userName = lineArray[0];
+				Instant date = Instant.parse(lineArray[1]);
+				Users currentUser = new Users(userName, date);
 
-				Instant date = Instant.parse(userDate);
-				users.add(new Users(userName, date));
-
+				if (!users.contains(currentUser)) {
+					users.add(currentUser);
+				}
 				line = br.readLine();
 			}
-
-			// Cria um conjunto vazio
-			Set<String> existingNames = new HashSet<>();
-			// Remove usuários duplicados
-			users.removeIf(user -> !existingNames.add(user.getName()));
-			/*
-			 * userSet.removeIf(...): Esta parte do código remove usuários do conjunto
-			 * userSet com base em uma condição. user -> !existingNames.add(user.getName()):
-			 * Aqui estamos usando um lambda (expressão funcional) para definir a condição.
-			 * Vamos quebrar isso ainda mais: user.getName(): Obtém o nome do usuário atual.
-			 * existingNames.add(...): Tenta adicionar o nome ao conjunto existingNames.
-			 * Retorna true se o nome não estava presente no conjunto e foi adicionado com
-			 * sucesso. Retorna false se o nome já estava presente. !existingNames.add(...):
-			 * O operador ! inverte o resultado. Portanto, a condição se torna verdadeira
-			 * (true) se o nome já está presente e falso (false) se o nome não está
-			 * presente. O método removeIf remove usuários onde a condição é verdadeira, ou
-			 * seja, remove usuários que têm o mesmo nome que já encontramos anteriormente.
-			 */
 
 			int totalUsers = users.size();
 
@@ -57,7 +41,7 @@ public class Program {
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
 		}
-		
+
 		sc.close();
 	}
 

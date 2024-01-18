@@ -42,7 +42,7 @@ public class Users {
 
 	@Override
 	public String toString() {
-		return "[name = " + name + ", date = " + date + "]";
+		return "name = " + name + ", date = " + date ;
 	}
 	
 	
