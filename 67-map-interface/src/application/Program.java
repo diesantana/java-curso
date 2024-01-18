@@ -28,7 +28,11 @@ public class Program {
 		people.put("Dico", 26);
 		
 		Set<String> peopleNomes = people.keySet();
-		System.out.println(peopleNomes);
+		System.out.println(peopleNomes); // [Alice, Dico, John, Maria, Miken]
+		
+		for(String key : people.keySet()) {
+			System.out.println("Nome: " + key + ", Idade: " + people.get(key));
+		}
 		
 		
 	}
