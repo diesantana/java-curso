@@ -21,8 +21,6 @@ public class Program {
 		
 		List<String> names = list.stream().map(p -> p.getName().toUpperCase()).collect(Collectors.toList());
 		names.forEach(System.out::println);
-		
-		
 	}
 
 }
