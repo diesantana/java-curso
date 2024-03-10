@@ -3,6 +3,7 @@ package application;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.function.Consumer;
 
 import entities.Product;
 import util.MyConsumer;
@@ -20,7 +21,9 @@ public class Program {
 		products.forEach(System.out::println);
 		System.out.println();
 		
-		products.forEach(Product::increasePriceProduct);
+		Consumer<Product> myConsumer = p -> p.setPrice(p.getPrice() * 1.10);
+		
+		products.forEach(myConsumer);
 		products.forEach(System.out::println);
 	}
 
