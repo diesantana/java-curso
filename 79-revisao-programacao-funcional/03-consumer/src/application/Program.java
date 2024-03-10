@@ -23,7 +23,7 @@ public class Program {
 		
 		Consumer<Product> myConsumer = p -> p.setPrice(p.getPrice() * 1.10);
 		
-		products.forEach(myConsumer);
+		products.forEach(p -> p.setPrice(p.getPrice() * 1.10));
 		products.forEach(System.out::println);
 	}
 
