@@ -14,5 +14,4 @@ public class MyConsumer implements Consumer<Product> {
 	public static void increasePrice(Product p) {
 		p.setPrice(p.getPrice() * 1.10);
 	}
-
 }

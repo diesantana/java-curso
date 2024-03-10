@@ -25,6 +25,10 @@ public class Product{
 		this.price = price;
 	}
 	
+	public void increasePriceProduct() {
+		setPrice(price * 1.10);
+	}
+	
 	@Override
 	public String toString() {
 		return name + ", " + String.format("%.2f", price) ;

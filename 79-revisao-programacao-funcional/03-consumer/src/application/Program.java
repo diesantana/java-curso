@@ -20,7 +20,7 @@ public class Program {
 		products.forEach(System.out::println);
 		System.out.println();
 		
-		products.forEach(MyConsumer::increasePrice);
+		products.forEach(Product::increasePriceProduct);
 		products.forEach(System.out::println);
 	}
 
