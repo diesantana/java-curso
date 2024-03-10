@@ -6,7 +6,7 @@ import java.util.Locale;
 import java.util.function.Consumer;
 
 import entities.Product;
-import util.MyConsumer;
+import util.MyClass;
 
 public class Program {
 
@@ -23,7 +23,8 @@ public class Program {
 		
 		Consumer<Product> myConsumer = p -> p.setPrice(p.getPrice() * 1.10);
 		
-		products.forEach(p -> p.setPrice(p.getPrice() * 1.10));
+		//products.forEach(p -> p.setPrice(p.getPrice() * 1.10));
+		products.forEach(MyClass::updatePrice);
 		products.forEach(System.out::println);
 	}
 
