@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import entities.Product;
@@ -24,7 +25,10 @@ public class Program {
 		products.forEach(System.out::println);
 		System.out.println();
 		
-		List<String> names = products.stream().map(Product::upperCaseName).collect(Collectors.toList());;
+		Function<Product, String> func = p -> p.getName().toUpperCase();
+		
+		//List<String> names = products.stream().map(Product::upperCaseName).collect(Collectors.toList());
+		List<String> names = products.stream().map(func).collect(Collectors.toList());;
 		names.forEach(System.out::println);
 	}
 
