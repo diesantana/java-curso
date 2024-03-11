@@ -24,7 +24,7 @@ public class Program {
 		products.forEach(System.out::println);
 		System.out.println();
 		
-		List<String> names = products.stream().map(new UpperCase()).collect(Collectors.toList());;
+		List<String> names = products.stream().map(Product::staticUpperCase).collect(Collectors.toList());;
 		names.forEach(System.out::println);
 	}
 
